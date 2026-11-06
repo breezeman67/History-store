@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>娟容歷史課 | 穿越古今，用歷史看懂世界的脈絡</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        burgundy: {
+                            50: '#fcf8f8',
+                            100: '#f7edee',
+                            600: '#8c1c2b',
+                            700: '#6e121e',
+                            800: '#540b15',
+                            900: '#3d050d'
+                        },
+                        amber: {
+                            500: '#d97706',
+                            600: '#b45309',
+                            400: '#f59e0b',
+                        },
+                        sand: {
+                            50: '#fdfbf7',
+                            100: '#f7f3e9',
+                            200: '#efe6d5',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Serif TC', 'PingFang TC', 'sans-serif'],
+                        serif: ['Noto Serif TC', 'PMingLiU', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Font: Noto Serif TC & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Serif TC', serif;
+            background-color: #fdfbf7;
+        }
+        .bg-pattern {
+            background-color: #540b15;
+            background-image: radial-gradient(#d97706 0.75px, transparent 0.75px), radial-gradient(#d97706 0.75px, #540b15 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.96;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased flex flex-col min-h-screen selection:bg-burgundy-600 selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-sand-50/90 backdrop-blur-md border-b border-amber-500/20 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-11 h-11 rounded-full bg-burgundy-800 flex items-center justify-center text-amber-400 font-bold text-xl shadow-md border-2 border-amber-500 relative overflow-hidden">
+                        <span class="text-2xl">🐰</span>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-bold tracking-wider text-burgundy-900 block leading-tight">娟容歷史課</span>
+                        <span class="text-xs text-amber-600 tracking-widest font-sans uppercase">Juan-Rong Rabbit History</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 font-sans font-medium text-gray-700">
+                    <a href="#about" class="hover:text-burgundy-700 transition duration-150 py-1 border-b-2 border-transparent hover:border-burgundy-700">關於講師</a>
+                    <a href="#features" class="hover:text-burgundy-700 transition duration-150 py-1 border-b-2 border-transparent hover:border-burgundy-700">教學特色</a>
+                    <a href="#courses" class="hover:text-burgundy-700 transition duration-150 py-1 border-b-2 border-transparent hover:border-burgundy-700">熱門課程</a>
+                    <a href="#quiz" class="hover:text-burgundy-700 transition duration-150 py-1 border-b-2 border-transparent hover:border-burgundy-700">歷史小測驗</a>
+                    <a href="#testimonials" class="hover:text-burgundy-700 transition duration-150 py-1 border-b-2 border-transparent hover:border-burgundy-700">學員評價</a>
+                    <a href="#faq" class="hover:text-burgundy-700 transition duration-150 py-1 border-b-2 border-transparent hover:border-burgundy-700">常見問題</a>
+                </nav>
+
+                <!-- Header CTA Button -->
+                <div class="hidden md:flex items-center space-x-4 font-sans">
+                    <a href="#courses" class="px-5 py-2.5 rounded-full text-sm font-semibold bg-burgundy-800 text-amber-400 hover:bg-burgundy-900 hover:shadow-lg transition duration-200 border border-amber-500/40">
+                        <i class="fa-solid fa-graduation-cap mr-2"></i>立即報名
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-burgundy-900 hover:text-burgundy-600 focus:outline-none p-2" aria-label="選單">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-sand-100 border-b border-amber-200 px-4 pt-2 pb-6 space-y-3 font-sans">
+            <a href="#about" class="block py-2 text-gray-800 font-medium hover:text-burgundy-700 border-b border-gray-200">關於講師</a>
+            <a href="#features" class="block py-2 text-gray-800 font-medium hover:text-burgundy-700 border-b border-gray-200">教學特色</a>
+            <a href="#courses" class="block py-2 text-gray-800 font-medium hover:text-burgundy-700 border-b border-gray-200">熱門課程</a>
+            <a href="#quiz" class="block py-2 text-gray-800 font-medium hover:text-burgundy-700 border-b border-gray-200">歷史小測驗</a>
+            <a href="#testimonials" class="block py-2 text-gray-800 font-medium hover:text-burgundy-700 border-b border-gray-200">學員評價</a>
+            <a href="#faq" class="block py-2 text-gray-800 font-medium hover:text-burgundy-700">常見問題</a>
+            <a href="#courses" class="block text-center w-full mt-4 py-3 bg-burgundy-800 text-amber-400 rounded-lg font-semibold shadow">
+                <i class="fa-solid fa-graduation-cap mr-2"></i>立即報名課程
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative bg-pattern text-white py-24 lg:py-32 overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-burgundy-900/90 via-burgundy-900/80 to-burgundy-800/60 z-0"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center space-x-2 bg-amber-500/20 border border-amber-400/40 text-amber-300 px-4 py-1.5 rounded-full text-sm font-sans backdrop-blur-sm">
+                            <span class="text-base">🐰</span>
+                            <span>萌兔歷史大師・學測 / 分科測驗 / 歷史素養首選</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-amber-50">
+                            與娟容兔老師 <br class="hidden sm:inline">
+                            <span class="text-amber-400 underline decoration-amber-500/50 underline-offset-8">跳躍古今・看懂世界脈絡</span>
+                        </h1>
+                        <p class="text-lg sm:text-xl text-sand-100 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0 font-sans">
+                            拒絕死記硬背！讓身穿漢服漢帽的「娟容兔老師」帶你用萌趣與深度兼具的「史料思辨與時空縱橫法」，輕鬆升級歷史邏輯與考場競爭力！
+                        </p>
+                        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 font-sans">
+                            <a href="#courses" class="w-full sm:w-auto px-8 py-4 bg-amber-500 hover:bg-amber-600 text-burgundy-900 font-bold rounded-xl shadow-xl transition hover:-translate-y-0.5 text-center flex items-center justify-center space-x-2">
+                                <span>瀏覽熱門課程</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <button onclick="openTrialModal()" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-sand-50 font-semibold rounded-xl border border-amber-400/30 transition backdrop-blur-sm text-center flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-circle-play text-amber-400"></i>
+                                <span>免費試聽 15 分鐘</span>
+                            </button>
+                        </div>
+                        <!-- Trust badges -->
+                        <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-4 text-center font-sans">
+                            <div>
+                                <p class="text-2xl sm:text-3xl font-bold text-amber-400">10,000+</p>
+                                <p class="text-xs sm:text-sm text-sand-200 mt-1">累計輔導學員</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl sm:text-3xl font-bold text-amber-400">98.5%</p>
+                                <p class="text-xs sm:text-sm text-sand-200 mt-1">滿分與頂標率</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl sm:text-3xl font-bold text-amber-400">4.9 ★</p>
+                                <p class="text-xs sm:text-sm text-sand-200 mt-1">課程綜合評價</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="relative w-full max-w-md">
+                            <!-- Decorative backdrop rings -->
+                            <div class="absolute -top-4 -left-4 w-72 h-72 bg-amber-500/20 rounded-full blur-3xl"></div>
+                            <div class="relative rounded-2xl overflow-hidden border-4 border-amber-400/40 shadow-2xl bg-burgundy-800">
+                                <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" alt="娟容兔歷史老師" class="w-full h-[420px] object-cover opacity-90 hover:scale-105 transition duration-500">
+                                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-burgundy-900 via-burgundy-900/80 to-transparent p-6 text-white">
+                                    <span class="bg-amber-500 text-burgundy-900 text-xs font-bold font-sans px-2.5 py-1 rounded mb-2 inline-block">👑 首席萌兔導師</span>
+                                    <h3 class="text-2xl font-bold flex items-center gap-2">娟容兔 老師 <span class="text-xl">🐰📜</span></h3>
+                                    <p class="text-xs text-sand-200 font-sans mt-1">國立頂尖大學歷史碩士兔 / 10+ 年大考與素養歷史講師</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teacher Intro Section -->
+        <section id="about" class="py-20 bg-sand-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold text-amber-600 uppercase tracking-widest font-sans mb-2">About Rabbit Scholar</h2>
+                    <p class="text-3xl sm:text-4xl font-bold text-burgundy-900">認識你的歷史學者 — 娟容兔老師 🐰</p>
+                    <div class="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-8 rounded-2xl border border-sand-200 shadow-sm hover:shadow-md transition text-center sm:text-left">
+                        <div class="w-16 h-16 bg-burgundy-100 rounded-2xl flex items-center justify-center text-burgundy-700 text-3xl mb-6 mx-auto sm:mx-0">
+                            🐰
+                        </div>
+                        <h3 class="text-xl font-bold text-burgundy-900 mb-3">10+ 年兔子學堂實戰</h3>
+                        <p class="text-gray-600 font-sans leading-relaxed text-sm">
+                            深耕高中學測、分科測驗與大眾歷史通識。以生動活潑的萌兔視角，為學員突破歷史邏輯死角。
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-8 rounded-2xl border border-sand-200 shadow-sm hover:shadow-md transition text-center sm:text-left">
+                        <div class="w-16 h-16 bg-burgundy-100 rounded-2xl flex items-center justify-center text-burgundy-700 text-3xl mb-6 mx-auto sm:mx-0">
+                            📜
+                        </div>
+                        <h3 class="text-xl font-bold text-burgundy-900 mb-3">獨創「兔式史料思辨」</h3>
+                        <p class="text-gray-600 font-sans leading-relaxed text-sm">
+                            揮別枯燥年代表！跟著娟容兔老師開箱史料圖表與時空地圖，培養縱覽古今的獨立思考素養力。
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-8 rounded-2xl border border-sand-200 shadow-sm hover:shadow-md transition text-center sm:text-left">
+                        <div class="w-16 h-16 bg-burgundy-100 rounded-2xl flex items-center justify-center text-burgundy-700 text-3xl mb-6 mx-auto sm:mx-0">
+                            🥕
+                        </div>
+                        <h3 class="text-xl font-bold text-burgundy-900 mb-3">滿分胡蘿蔔推手</h3>
+                        <p class="text-gray-600 font-sans leading-relaxed text-sm">
+                            歷年學員於大考歷史科表現亮眼，高分與頂標率居高不下，讓歷史成為最穩健的搶分神器！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching Highlights / Features Section -->
+        <section id="features" class="py-20 bg-sand-100/60 border-y border-sand-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="text-xs font-bold text-amber-600 uppercase tracking-widest font-sans">Why Rabbit History</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-burgundy-900 mt-2 mb-6">為什麼選擇「娟容兔歷史課」？</h2>
+                        <div class="space-y-6 font-sans">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-burgundy-800 text-amber-400 flex items-center justify-center font-bold text-sm mt-1">1</div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-burgundy-900">兔子學者專屬「時空心智圖」</h4>
+                                    <p class="text-gray-600 text-sm mt-1">將繁雜歷史事件梳理成可愛又嚴謹的圖像時空地圖，隨課附贈全彩手繪講義。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-burgundy-800 text-amber-400 flex items-center justify-center font-bold text-sm mt-1">2</div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-burgundy-900">無限次隨選反覆學習</h4>
+                                    <p class="text-gray-600 text-sm mt-1">購買課程享有 2 年無限次線上觀看，支援手機、平板與電腦，隨時跟著萌兔老師溫故知新。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-burgundy-800 text-amber-400 flex items-center justify-center font-bold text-sm mt-1">3</div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-burgundy-900">兔子學友會 1 對 1 解惑</h4>
+                                    <p class="text-gray-600 text-sm mt-1">專屬學員線上社群，遇到複雜題型或觀念盲點，娟容兔老師與團隊隨時為你解題解答。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-sand-200">
+                        <div class="aspect-video rounded-xl bg-gray-900 overflow-hidden relative group cursor-pointer" onclick="openTrialModal()">
+                            <img src="https://images.unsplash.com/photo-1535241749838-299277b6305f?auto=format&fit=crop&w=800&q=80" alt="娟容兔歷史課程試聽" class="w-full h-full object-cover opacity-75 group-hover:scale-105 transition duration-300">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center text-burgundy-900 text-2xl shadow-lg group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-play ml-1"></i>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-4 left-4 bg-burgundy-900/80 backdrop-blur-sm text-white px-3 py-1 rounded text-xs font-sans flex items-center gap-2">
+                                <span>🐰 試聽影片：娟容兔帶你逛大航海時代貿易網 (15 分鐘)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teacher Intro Section -->
+        <section id="about" class="py-20 bg-sand-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold text-amber-600 uppercase tracking-widest font-sans mb-2">About The Teacher</h2>
+                    <p class="text-3xl sm:text-4xl font-bold text-burgundy-900">認識你的歷史導師 — 娟容老師</p>
+                    <div class="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-8 rounded-2xl border border-sand-200 shadow-sm hover:shadow-md transition">
+                        <div class="w-14 h-14 bg-burgundy-100 rounded-xl flex items-center justify-center text-burgundy-700 text-2xl mb-6">
+                            <i class="fa-solid fa-scroll"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-burgundy-900 mb-3">10+ 年教學實戰經驗</h3>
+                        <p class="text-gray-600 font-sans leading-relaxed text-sm">
+                            多年深耕高中學測、分科測驗與大眾歷史推廣。熟知命題趨勢與學生常見邏輯盲點，精準破除歷史學習障礙。
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-8 rounded-2xl border border-sand-200 shadow-sm hover:shadow-md transition">
+                        <div class="w-14 h-14 bg-burgundy-100 rounded-xl flex items-center justify-center text-burgundy-700 text-2xl mb-6">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-burgundy-900 mb-3">獨創「史料思辨法」</h3>
+                        <p class="text-gray-600 font-sans leading-relaxed text-sm">
+                            告別死記年代與事件！透過史料對比與跨時空比較，培養獨立思考能力，輕鬆應對 108 課綱素養導向題型。
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-8 rounded-2xl border border-sand-200 shadow-sm hover:shadow-md transition">
+                        <div class="w-14 h-14 bg-burgundy-100 rounded-xl flex items-center justify-center text-burgundy-700 text-2xl mb-6">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-burgundy-900 mb-3">滿分與頂標推手</h3>
+                        <p class="text-gray-600 font-sans leading-relaxed text-sm">
+                            歷年學員於各大公開考試中歷史科表現優異，高分率屢創新高。讓歷史不再是扣分科目，而是拉分的絕對優勢！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching Highlights / Features Section -->
+        <section id="features" class="py-20 bg-sand-100/60 border-y border-sand-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="text-xs font-bold text-amber-600 uppercase tracking-widest font-sans">Teaching Philosophy</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-burgundy-900 mt-2 mb-6">為什麼選擇「娟容歷史課」？</h2>
+                        <div class="space-y-6 font-sans">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-burgundy-800 text-amber-400 flex items-center justify-center font-bold text-sm mt-1">1</div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-burgundy-900">圖像化時空地圖與心智圖</h4>
+                                    <p class="text-gray-600 text-sm mt-1">將繁雜歷史事件梳理成清晰的時間軸與地理空間變化圖，隨課附贈精美全彩講義。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-burgundy-800 text-amber-400 flex items-center justify-center font-bold text-sm mt-1">2</div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-burgundy-900">無限次線上反覆觀看</h4>
+                                    <p class="text-gray-600 text-sm mt-1">購買課程後提供 1～2 年無限制次數觀看權限，高清畫質，支援手機、平板與電腦學習。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-burgundy-800 text-amber-400 flex items-center justify-center font-bold text-sm mt-1">3</div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-burgundy-900">專屬 1 對 1 課務與答疑社群</h4>
+                                    <p class="text-gray-600 text-sm mt-1">學員專屬討論群組，遇到不懂的歷史概念或題目，老師與助教團隊親自線上為你解惑。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-sand-200">
+                        <div class="aspect-video rounded-xl bg-gray-900 overflow-hidden relative group cursor-pointer" onclick="openTrialModal()">
+                            <img src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&w=800&q=80" alt="課程試聽預覽" class="w-full h-full object-cover opacity-75 group-hover:scale-105 transition duration-300">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-16 h-16 bg-amber-500 rounded-full flex items-center justify-center text-burgundy-900 text-2xl shadow-lg group-hover:scale-110 transition">
+                                    <i class="fa-solid fa-play ml-1"></i>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-4 left-4 bg-burgundy-900/80 backdrop-blur-sm text-white px-3 py-1 rounded text-xs font-sans">
+                                試聽影片：大航海時代的全球貿易網絡 (15 分鐘)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Showcase Section -->
+        <section id="courses" class="py-24 bg-sand-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-xs font-bold text-amber-600 uppercase tracking-widest font-sans mb-2">Featured Courses</h2>
+                    <p class="text-3xl sm:text-4xl font-bold text-burgundy-900">熱門歷史線上課程</p>
+                    <p class="text-gray-600 font-sans mt-3">根據你的學習需求與階段，選擇最適合的專題課程</p>
+                    <div class="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <!-- Course Category Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-3 mb-12 font-sans">
+                    <button onclick="filterCourses('all')" class="course-filter-btn active-filter px-5 py-2 rounded-full text-sm font-medium transition bg-burgundy-800 text-amber-400">全部課程</button>
+                    <button onclick="filterCourses('prep')" class="course-filter-btn px-5 py-2 rounded-full text-sm font-medium transition bg-white text-gray-700 hover:bg-sand-200 border border-sand-300">大考衝刺</button>
+                    <button onclick="filterCourses('deep')" class="course-filter-btn px-5 py-2 rounded-full text-sm font-medium transition bg-white text-gray-700 hover:bg-sand-200 border border-sand-300">專題深耕</button>
+                    <button onclick="filterCourses('general')" class="course-filter-btn px-5 py-2 rounded-full text-sm font-medium transition bg-white text-gray-700 hover:bg-sand-200 border border-sand-300">人文素養</button>
+                </div>
+
+                <!-- Course Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 font-sans">
+                    
+                    <!-- Course Card 1 -->
+                    <div class="course-card bg-white rounded-2xl overflow-hidden border border-sand-200 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col" data-category="deep">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1599839575945-a9e5af0c3fa5?auto=format&fit=crop&w=600&q=80" alt="臺灣史深耕" class="w-full h-48 object-cover">
+                            <span class="absolute top-3 right-3 bg-amber-500 text-burgundy-900 font-bold text-xs px-2.5 py-1 rounded-full shadow">熱銷專題</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center space-x-1 text-amber-500 text-xs mb-2">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span class="text-gray-500 font-medium ml-1">4.9 (128)</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-burgundy-900 mb-2 font-serif">臺灣史深耕與思辨</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed mb-4 line-clamp-3">
+                                    從大航海時代的海洋臺灣，到原住民、荷蘭、清領與日治時期，重新理解臺灣的多重歷史定位與文化脈絡。
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-4">
+                                    <span class="bg-sand-100 text-burgundy-800 text-[11px] px-2 py-0.5 rounded">24 堂課</span>
+                                    <span class="bg-sand-100 text-burgundy-800 text-[11px] px-2 py-0.5 rounded">附贈全彩電子講義</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-baseline justify-between mb-4 border-t border-sand-100 pt-4">
+                                    <span class="text-xs text-gray-500">優惠推廣價</span>
+                                    <span class="text-2xl font-bold text-burgundy-700">NT$ 2,800</span>
+                                </div>
+                                <button onclick="openCheckoutModal('臺灣史深耕與思辨', 2800)" class="w-full py-2.5 bg-burgundy-800 hover:bg-burgundy-900 text-amber-400 font-semibold rounded-xl text-sm transition shadow-md flex items-center justify-center space-x-2">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    <span>立即報名</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 2 -->
+                    <div class="course-card bg-white rounded-2xl overflow-hidden border border-sand-200 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col" data-category="general">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1508807526345-15e9b5f4eaff?auto=format&fit=crop&w=600&q=80" alt="中國通史" class="w-full h-48 object-cover">
+                            <span class="absolute top-3 right-3 bg-burgundy-800 text-amber-400 font-bold text-xs px-2.5 py-1 rounded-full shadow">經典推薦</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center space-x-1 text-amber-500 text-xs mb-2">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span class="text-gray-500 font-medium ml-1">4.9 (215)</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-burgundy-900 mb-2 font-serif">中國通史與文明轉折點</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed mb-4 line-clamp-3">
+                                    打破朝代更迭的死板記憶，聚焦制度演變、思想革新與經濟結構轉換，帶你看懂數千年文明發展的核心密碼。
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-4">
+                                    <span class="bg-sand-100 text-burgundy-800 text-[11px] px-2 py-0.5 rounded">30 堂課</span>
+                                    <span class="bg-sand-100 text-burgundy-800 text-[11px] px-2 py-0.5 rounded">制度架構圖解</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-baseline justify-between mb-4 border-t border-sand-100 pt-4">
+                                    <span class="text-xs text-gray-500">優惠推廣價</span>
+                                    <span class="text-2xl font-bold text-burgundy-700">NT$ 3,200</span>
+                                </div>
+                                <button onclick="openCheckoutModal('中國通史與文明轉折點', 3200)" class="w-full py-2.5 bg-burgundy-800 hover:bg-burgundy-900 text-amber-400 font-semibold rounded-xl text-sm transition shadow-md flex items-center justify-center space-x-2">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    <span>立即報名</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 3 -->
+                    <div class="course-card bg-white rounded-2xl overflow-hidden border border-sand-200 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col" data-category="general">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="世界史探秘" class="w-full h-48 object-cover">
+                            <span class="absolute top-3 right-3 bg-amber-500 text-burgundy-900 font-bold text-xs px-2.5 py-1 rounded-full shadow">廣受好評</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center space-x-1 text-amber-500 text-xs mb-2">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span class="text-gray-500 font-medium ml-1">5.0 (180)</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-burgundy-900 mb-2 font-serif">世界史探秘：大航海到現代格局</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed mb-4 line-clamp-3">
+                                    從西洋古典文明、工業革命至兩次世界大戰與冷戰局勢，剖析當今國際政經局勢的歷史根源。
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-4">
+                                    <span class="bg-sand-100 text-burgundy-800 text-[11px] px-2 py-0.5 rounded">32 堂課</span>
+                                    <span class="bg-sand-100 text-burgundy-800 text-[11px] px-2 py-0.5 rounded">世界地圖對照</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-baseline justify-between mb-4 border-t border-sand-100 pt-4">
+                                    <span class="text-xs text-gray-500">優惠推廣價</span>
+                                    <span class="text-2xl font-bold text-burgundy-700">NT$ 3,600</span>
+                                </div>
+                                <button onclick="openCheckoutModal('世界史探秘：大航海到現代格局', 3600)" class="w-full py-2.5 bg-burgundy-800 hover:bg-burgundy-900 text-amber-400 font-semibold rounded-xl text-sm transition shadow-md flex items-center justify-center space-x-2">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    <span>立即報名</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 4 -->
+                    <div class="course-card bg-white rounded-2xl overflow-hidden border-2 border-amber-500/60 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col relative" data-category="prep">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-amber-500 text-burgundy-900 font-bold text-xs px-3 py-0.5 rounded-full z-10 shadow">
+                            考生強烈推薦
+                        </div>
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" alt="分科測驗衝刺" class="w-full h-48 object-cover">
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center space-x-1 text-amber-500 text-xs mb-2">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span class="text-gray-500 font-medium ml-1">5.0 (340)</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-burgundy-900 mb-2 font-serif">高中歷史分科測驗衝刺總複習</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed mb-4 line-clamp-3">
+                                    針對學測與分科測驗重點精準打擊！獨家素養素題拆解技巧，提供歷屆試題詳解與考前高頻考點猜題。
+                                </p>
+                                <div class="flex flex-wrap gap-1.5 mb-4">
+                                    <span class="bg-amber-100 text-burgundy-900 text-[11px] px-2 py-0.5 rounded font-semibold">40 堂課</span>
+                                    <span class="bg-amber-100 text-burgundy-900 text-[11px] px-2 py-0.5 rounded font-semibold">解題社群無限提問</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-baseline justify-between mb-4 border-t border-sand-100 pt-4">
+                                    <span class="text-xs text-gray-500">大考衝刺合購價</span>
+                                    <span class="text-2xl font-bold text-burgundy-700">NT$ 4,500</span>
+                                </div>
+                                <button onclick="openCheckoutModal('高中歷史分科測驗衝刺總複習', 4500)" class="w-full py-2.5 bg-amber-500 hover:bg-amber-600 text-burgundy-900 font-bold rounded-xl text-sm transition shadow-md flex items-center justify-center space-x-2">
+                                    <i class="fa-solid fa-bolt"></i>
+                                    <span>搶先報名衝刺班</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive History Quiz Widget -->
+        <section id="quiz" class="py-20 bg-burgundy-900 text-white relative overflow-hidden">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-10">
+                    <span class="text-amber-400 text-xs font-bold font-sans uppercase tracking-widest">Interactive Quiz</span>
+                    <h2 class="text-3xl font-bold mt-2">趣味歷史小測試：測測你的歷史素養程度！</h2>
+                    <p class="text-sand-200 font-sans text-sm mt-2">只需答對 3 題，即可獲得專屬課程折扣優惠！</p>
+                </div>
+
+                <div id="quiz-container" class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl font-sans">
+                    <!-- Dynamic Question Area -->
+                    <div id="quiz-question-box">
+                        <div class="flex justify-between items-center text-xs text-amber-300 mb-4 font-semibold">
+                            <span id="quiz-step">問題 1 / 3</span>
+                            <span>答對領取折價券</span>
+                        </div>
+                        <h3 id="quiz-question" class="text-xl font-bold mb-6 text-sand-50">載入中...</h3>
+                        <div id="quiz-options" class="space-y-3">
+                            <!-- Options will be injected here -->
+                        </div>
+                    </div>
+
+                    <!-- Quiz Result Area (Hidden by default) -->
+                    <div id="quiz-result" class="hidden text-center py-6">
+                        <div class="w-16 h-16 bg-amber-500 text-burgundy-900 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-4 shadow-lg">
+                            <i class="fa-solid fa-gift"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-amber-400 mb-2">恭喜完成測試！</h3>
+                        <p id="quiz-score-text" class="text-sand-100 text-base mb-6"></p>
+                        <div class="bg-white/10 border border-amber-400/40 p-4 rounded-xl max-w-sm mx-auto mb-6">
+                            <p class="text-xs text-sand-200">專屬 9 折優惠代碼</p>
+                            <p class="text-2xl font-mono font-bold text-amber-300 tracking-wider my-1">JUANRONG90</p>
+                            <p class="text-[11px] text-amber-200/80">* 結帳時輸入折扣碼即可享有 9 折優惠</p>
+                        </div>
+                        <button onclick="resetQuiz()" class="px-6 py-2.5 bg-sand-200 text-burgundy-900 rounded-lg font-bold hover:bg-white transition text-sm">
+                            重新測試
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Student Testimonials Section -->
+        <section id="testimonials" class="py-24 bg-sand-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold text-amber-600 uppercase tracking-widest font-sans mb-2">Student Reviews</h2>
+                    <p class="text-3xl sm:text-4xl font-bold text-burgundy-900">來自學員的真實好評</p>
+                    <p class="text-gray-600 font-sans mt-2">看看大家是如何透過娟容老師的課程翻轉歷史成績與學習熱情</p>
+                    <div class="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 font-sans">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-8 rounded-2xl border border-sand-200 shadow-sm flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex text-amber-400 space-x-1 text-sm">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-700 text-sm leading-relaxed italic">
+                                「聽了娟容兔老師的衝刺班，原本死板的歷史年代突然變成一場生動的史詩故事！最後分科測驗順利拿到了滿分，超感謝兔老師！」
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-sand-100 flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-burgundy-700 text-amber-400 font-bold flex items-center justify-center text-lg">
+                                🐰
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-burgundy-900">林同學 (成功高中)</h4>
+                                <p class="text-xs text-gray-500">錄取 國立臺灣大學歷史學系</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-8 rounded-2xl border border-sand-200 shadow-sm flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex text-amber-400 space-x-1 text-sm">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-700 text-sm leading-relaxed italic">
+                                「娟容兔老師的『兔式史料思辨』非常有深度！圖像化地庫與脈絡整理，讓我在思考歷史脈絡時效率大大提升。」
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-sand-100 flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-burgundy-700 text-amber-400 font-bold flex items-center justify-center text-lg">
+                                🥕
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-burgundy-900">張先生 (社會人士)</h4>
+                                <p class="text-xs text-gray-500">世界史專題班學員</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-8 rounded-2xl border border-sand-200 shadow-sm flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <div class="flex text-amber-400 space-x-1 text-sm">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-700 text-sm leading-relaxed italic">
+                                「最喜歡『兔子答疑學友會』社群，寫題遇到挫折，兔老師總是給出超詳細的解答，解開了我對 108 課綱題目所有的困惑！」
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-sand-100 flex items-center space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-burgundy-700 text-amber-400 font-bold flex items-center justify-center text-lg">
+                                🐇
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-burgundy-900">陳同學 (北一女中)</h4>
+                                <p class="text-xs text-gray-500">錄取 國立政治大學政治學系</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Accordion Section -->
+        <section id="faq" class="py-20 bg-sand-100/60 border-t border-sand-200">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-xs font-bold text-amber-600 uppercase tracking-widest font-sans mb-2">Frequently Asked Questions</h2>
+                    <p class="text-3xl font-bold text-burgundy-900">常見問題解答</p>
+                    <div class="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="space-y-4 font-sans">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-white rounded-xl border border-sand-200 overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-6 font-bold text-burgundy-900 flex justify-between items-center focus:outline-none hover:bg-sand-50 transition">
+                            <span>課程購買後有觀看期限嗎？可以重複播放嗎？</span>
+                            <i class="fa-solid fa-chevron-down text-amber-600 transition-transform duration-200"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-sand-100 pt-4">
+                            所有線上課程在購買後皆提供 2 年無限次數觀看權限。您可以在電腦、手機、平板等設備隨時進行隨選學習，不受時間與地點限制。
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-white rounded-xl border border-sand-200 overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-6 font-bold text-burgundy-900 flex justify-between items-center focus:outline-none hover:bg-sand-50 transition">
+                            <span>課程講義是實體寄送還是電子檔？</span>
+                            <i class="fa-solid fa-chevron-down text-amber-600 transition-transform duration-200"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-sand-100 pt-4">
+                            所有課程均免費提供專屬高清全彩 PDF 電子講義供學員下載列印。若購買「大考衝刺總複習」課程，我們亦免費寄送精裝紙本講義至您的指定地址（含臺灣本島免運）。
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-white rounded-xl border border-sand-200 overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-6 font-bold text-burgundy-900 flex justify-between items-center focus:outline-none hover:bg-sand-50 transition">
+                            <span>學習過程中遇到不懂的題目該怎麼辦？</span>
+                            <i class="fa-solid fa-chevron-down text-amber-600 transition-transform duration-200"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-sand-100 pt-4">
+                            報名成功後，系統將自動引導您加入「娟容老師歷史專屬線上討論社群」。您可以在社群中隨時發問，老師與助教團隊將在 24 小時內為您詳細解答。
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="bg-white rounded-xl border border-sand-200 overflow-hidden">
+                        <button onclick="toggleFaq(this)" class="w-full text-left p-6 font-bold text-burgundy-900 flex justify-between items-center focus:outline-none hover:bg-sand-50 transition">
+                            <span>支援哪些付款方式？是否可以分期？</span>
+                            <i class="fa-solid fa-chevron-down text-amber-600 transition-transform duration-200"></i>
+                        </button>
+                        <div class="faq-answer hidden px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-sand-100 pt-4">
+                            我們支援線上信用卡刷卡（支援 3/6 期零利率）、ATM 轉帳、超商代碼繳費及 LINE Pay 付款。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Call to Action -->
+        <section class="py-20 bg-pattern text-white text-center relative">
+            <div class="max-w-4xl mx-auto px-4 relative z-10">
+                <div class="text-5xl mb-4">🐰📜</div>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-amber-100">準備好與娟容兔老師開啟歷史高分之旅了嗎？</h2>
+                <p class="text-sand-200 font-sans mb-8 max-w-2xl mx-auto text-sm sm:text-base">
+                    加入上萬名學員的行列，跟隨萌兔學者的步伐，輕鬆解鎖史料邏輯與大考高分心法。
+                </p>
+                <a href="#courses" class="inline-block px-10 py-4 bg-amber-500 hover:bg-amber-600 text-burgundy-900 font-bold rounded-xl shadow-2xl transition hover:scale-105 font-sans">
+                    立即挑選適合你的歷史課程
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-burgundy-900 text-sand-200 border-t border-burgundy-800 font-sans py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-amber-500 text-burgundy-900 font-bold flex items-center justify-center text-lg">🐰</div>
+                        <span class="text-xl font-bold text-white">娟容歷史課</span>
+                    </div>
+                    <p class="text-xs text-sand-200 leading-relaxed">
+                        與歷史學者「娟容兔老師」一起打造全臺灣最有趣、最具思考深度的高中歷史線上學習體驗。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-3 text-sm">快速連結</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#about" class="hover:text-amber-400 transition">關於導師</a></li>
+                        <li><a href="#courses" class="hover:text-amber-400 transition">熱門課程</a></li>
+                        <li><a href="#quiz" class="hover:text-amber-400 transition">趣味測試</a></li>
+                        <li><a href="#faq" class="hover:text-amber-400 transition">常見問題</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-3 text-sm">聯絡與客服</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><i class="fa-solid fa-envelope mr-2 text-amber-500"></i>support@juanronghistory.com</li>
+                        <li><i class="fa-solid fa-phone mr-2 text-amber-500"></i>02-2345-6789 (週一至週五 09:00-18:00)</li>
+                        <li><i class="fa-brands fa-line mr-2 text-amber-500"></i>Line 官方帳號: @juanrong_hist</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-3 text-sm">關注我們</h4>
+                    <div class="flex space-x-4 text-xl">
+                        <a href="#" class="text-sand-200 hover:text-amber-400 transition"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-sand-200 hover:text-amber-400 transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="text-sand-200 hover:text-amber-400 transition"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-burgundy-800 pt-6 text-center text-xs text-sand-200">
+                <p>&copy; 2026 娟容歷史課 Juan-Rong History Class. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enrollment / Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 font-sans">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative border border-sand-200 animate-fadeIn">
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-xl focus:outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="mb-6">
+                <span class="text-xs text-amber-600 font-bold uppercase tracking-wider">Course Registration</span>
+                <h3 class="text-xl font-bold text-burgundy-900 mt-1" id="modal-course-title">課程報名</h3>
+                <p class="text-xs text-gray-500 mt-1">請填寫基本聯絡資料，我們將立即為您開通課程權限。</p>
+            </div>
+
+            <form id="checkout-form" onsubmit="handleCheckout(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">課程金額</label>
+                    <div class="text-2xl font-bold text-burgundy-700" id="modal-course-price">NT$ 0</div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">真實姓名 *</label>
+                    <input type="text" required placeholder="例如：王小明" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-burgundy-600 focus:border-transparent text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">電子信箱 (開通課程帳號使用) *</label>
+                    <input type="email" required placeholder="example@email.com" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-burgundy-600 focus:border-transparent text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">聯絡電話 *</label>
+                    <input type="tel" required placeholder="0912-345-678" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-burgundy-600 focus:border-transparent text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 mb-1">優惠折扣碼 (可選)</label>
+                    <input type="text" id="promo-code-input" placeholder="輸入折扣碼 (如: JUANRONG90)" class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-burgundy-600 focus:border-transparent text-sm uppercase">
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full py-3 bg-burgundy-800 hover:bg-burgundy-900 text-amber-400 font-bold rounded-xl shadow-lg transition text-sm flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>確認無誤，前往安全結帳</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Trial Video Modal -->
+    <div id="trial-modal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 font-sans">
+        <div class="bg-white rounded-2xl max-w-3xl w-full p-6 shadow-2xl relative">
+            <button onclick="closeTrialModal()" class="absolute -top-10 right-0 text-white hover:text-amber-400 text-2xl focus:outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="text-lg font-bold text-burgundy-900 mb-3">🐰 娟容兔老師試聽課：大航海時代的全球貿易網絡</h3>
+            <div class="aspect-video bg-black rounded-xl overflow-hidden flex items-center justify-center relative">
+                <img src="https://images.unsplash.com/photo-1535241749838-299277b6305f?auto=format&fit=crop&w=1000&q=80" alt="Video Preview" class="w-full h-full object-cover opacity-60">
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-4">
+                    <i class="fa-solid fa-circle-play text-5xl text-amber-400 mb-3 animate-pulse"></i>
+                    <p class="font-bold text-lg">娟容兔線上試聽教室</p>
+                    <p class="text-xs text-sand-200 mt-1">點擊播放免費體驗 15 分鐘精華教學片段</p>
+                </div>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+                <span class="text-xs text-gray-500">時長：15 分鐘 | 主講：娟容兔老師</span>
+                <button onclick="closeTrialModal(); openCheckoutModal('大航海專題體驗班', 0)" class="px-5 py-2 bg-burgundy-800 text-amber-400 rounded-lg text-xs font-bold hover:bg-burgundy-900">
+                    滿意試聽？立即報名完整課程
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message Box -->
+    <div id="success-box" class="fixed bottom-5 right-5 z-50 hidden bg-emerald-700 text-white px-6 py-4 rounded-xl shadow-2xl font-sans flex items-center space-x-3 border border-emerald-500">
+        <i class="fa-solid fa-circle-check text-2xl text-emerald-300"></i>
+        <div>
+            <h4 class="font-bold text-sm" id="success-box-title">成功發送</h4>
+            <p class="text-xs text-emerald-100" id="success-box-desc">感謝您的報名！客服人員將於 24 小時內與您聯繫。</p>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // FAQ Accordion Toggle
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                answer.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Course Category Filter
+        function filterCourses(category) {
+            const cards = document.querySelectorAll('.course-card');
+            const buttons = document.querySelectorAll('.course-filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-burgundy-800', 'text-amber-400');
+                btn.classList.add('bg-white', 'text-gray-700', 'hover:bg-sand-200');
+            });
+
+            event.currentTarget.classList.remove('bg-white', 'text-gray-700', 'hover:bg-sand-200');
+            event.currentTarget.classList.add('bg-burgundy-800', 'text-amber-400');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Checkout Modal Logic
+        let selectedCourseName = '';
+        let selectedCoursePrice = 0;
+
+        function openCheckoutModal(title, price) {
+            selectedCourseName = title;
+            selectedCoursePrice = price;
+            document.getElementById('modal-course-title').innerText = title;
+            document.getElementById('modal-course-price').innerText = `NT$ ${price.toLocaleString()}`;
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function handleCheckout(event) {
+            event.preventDefault();
+            closeCheckoutModal();
+            showSuccessNotification('報名申請已收件', `您已成功預約《${selectedCourseName}》，系統已發送開課通知信！`);
+        }
+
+        // Trial Modal Logic
+        function openTrialModal() {
+            document.getElementById('trial-modal').classList.remove('hidden');
+        }
+
+        function closeTrialModal() {
+            document.getElementById('trial-modal').classList.add('hidden');
+        }
+
+        // Show Temporary Success Box
+        function showSuccessNotification(title, msg) {
+            const box = document.getElementById('success-box');
+            document.getElementById('success-box-title').innerText = title;
+            document.getElementById('success-box-desc').innerText = msg;
+            box.classList.remove('hidden');
+            setTimeout(() => {
+                box.classList.add('hidden');
+            }, 4500);
+        }
+
+        // History Quiz State & Logic
+        const quizData = [
+            {
+                question: "1. 臺灣大航海時代中，熱蘭遮城（Fort Zeelandia）是由哪一個西方列強興建？",
+                options: ["西班牙", "荷蘭東印度公司", "葡萄牙", "英國東印度公司"],
+                correct: 1
+            },
+            {
+                question: "2. 中國歷史上的「廢丞相、權分六部」政策是由哪一位皇帝首創？",
+                options: ["漢武帝", "唐太宗", "宋太祖", "明太祖 (朱元璋)"],
+                correct: 3
+            },
+            {
+                question: "3. 18 世紀啟蒙運動中，提倡「三權分立」學說的法籍思想家是誰？",
+                options: ["伏爾泰", "孟德斯鳩", "盧梭", "洛克"],
+                correct: 1
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let quizScore = 0;
+
+        function loadQuizQuestion() {
+            const q = quizData[currentQuizIndex];
+            document.getElementById('quiz-step').innerText = `問題 ${currentQuizIndex + 1} / ${quizData.length}`;
+            document.getElementById('quiz-question').innerText = q.question;
+            
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'w-full text-left p-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 transition text-sm flex items-center justify-between font-sans';
+                btn.innerHTML = `<span>${opt}</span> <i class="fa-regular fa-circle"></i>`;
+                btn.onclick = () => selectQuizAnswer(idx);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectQuizAnswer(selectedIdx) {
+            if (selectedIdx === quizData[currentQuizIndex].correct) {
+                quizScore++;
+            }
+
+            currentQuizIndex++;
+            if (currentQuizIndex < quizData.length) {
+                loadQuizQuestion();
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function showQuizResult() {
+            document.getElementById('quiz-question-box').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('quiz-score-text').innerText = `您共答對了 ${quizScore} / ${quizData.length} 題！顯示出您對歷史擁有絕佳的好奇心與基礎！`;
+        }
+
+        function resetQuiz() {
+            currentQuizIndex = 0;
+            quizScore = 0;
+            document.getElementById('quiz-question-box').classList.remove('hidden');
+            document.getElementById('quiz-result').classList.add('hidden');
+            loadQuizQuestion();
+        }
+
+        // Initialize quiz on window load
+        window.onload = function() {
+            loadQuizQuestion();
+        }
+    </script>
+</body>
+</html>
